@@ -25,6 +25,7 @@ class CreateAdmin extends Command {
      * Execute the console command.
      */
     public function handle() {
+        
         $email = $this->argument('email');
         $password = $this->argument('password');
         Admin::create([
