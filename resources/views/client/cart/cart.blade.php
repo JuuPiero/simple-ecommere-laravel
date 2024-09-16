@@ -2,6 +2,12 @@
 
 @section('content')
 <main class="main">
+    <style>
+        .input-group-prepend,
+        .input-group-append {
+            display: none;
+        }
+    </style>
     <div class="page-header text-center" style="background-image: url('{{asset('assets/client/images/page-header-bg.jpg')}}')">
         <div class="container">
             <h1 class="page-title">Shopping Cart<span>Shop</span></h1>
@@ -48,13 +54,13 @@
                                                 </h3><!-- End .product-title -->
                                             </div><!-- End .product -->
                                         </td>
-                                        <td class="price-col">{{'$'. ($item['product']->price) }}</td>
+                                        <td class="price-col">{{ ($item['product']->price) }}$</td>
                                         <td class="quantity-col">
                                             <div class="cart-product-quantity">
                                                 <input disabled type="number" class="form-control" value="{{ $item['quantity'] }}" min="1" max="10" step="1" data-decimals="0" required>
                                             </div><!-- End .cart-product-quantity -->
                                         </td>
-                                        <td class="total-col">{{'$'. ($item['product']->price * $item['quantity']) }}</td>
+                                        <td class="total-col">{{ ($item['product']->price * $item['quantity']) }}$</td>
                                         <td class="remove-col"><a href="{{ route('cart.remove', $item['product']->id) }}" class="btn-remove"><i class="icon-close"></i></a></td>
                                     </tr>
                                 @endforeach
@@ -100,9 +106,9 @@
     const totalCols = document.querySelectorAll('.total-col')
     let total = 0
     totalCols.forEach(item => {
-        total += Number.parseFloat(item.innerText.substring(1))
+        total += Number.parseFloat(item.innerText.substring(-1))
     })
-    document.querySelector('.total').innerText = '$' + total
+    document.querySelector('.total').innerText = total + '$'
 
 </script>
 @endsection

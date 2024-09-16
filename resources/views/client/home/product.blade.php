@@ -34,10 +34,6 @@
                                             <img src="{{ asset('uploads/' . $image->name) }}" alt="{{$image->name}}">
                                         </a>
                                     @endforeach
-{{-- 
-                                    <a class="product-gallery-item active" href="#" data-image="assets/images/products/single/1.jpg" data-zoom-image="assets/images/products/single/1-big.jpg">
-                                        <img src="assets/images/products/single/1-small.jpg" alt="product side">
-                                    </a> --}}
                                  
                                 </div><!-- End .product-image-gallery -->
                             </div><!-- End .row -->
@@ -49,7 +45,7 @@
                             <h1 class="product-title">{{ $product->name }}</h1><!-- End .product-title -->
 
                             <div class="product-price">
-                                {{ '$' . $product->price }}
+                                {{  $product->price }} đ
                             </div><!-- End .product-price -->
 
                             <div class="product-content">

@@ -9,14 +9,14 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller {
     public function index() {
-        $orders = Order::with('user')->orderByDesc('created_at')->get();
+        $orders = Order::orderByDesc('created_at')->get();
         return view('admin.order.index')->with([
             'orders' => $orders
         ]);
     }
 
     public function detail($id) {
-        $order = Order::with('user')->findOrFail($id);
+        $order = Order::findOrFail($id);
         $orderItems = OrderItem::with('product')->where('order_id', $id)->get();
         return view('admin.order.detail')->with([
             'order' => $order,

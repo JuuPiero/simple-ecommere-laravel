@@ -25,7 +25,7 @@
                   <th scope="row">{{ $product->id }}</th>
                   <td>{{ $product->name }}</td>
                   <td><img style="width: 80px; height: 40px; object-fit: cover" src="{{ asset('uploads/' . $product->images[0]->name) }}" alt="" srcset=""></td>
-                  <td>{{ $product->category_name }}</td>
+                  <td>{{ $product->category->name }}</td>
                   <td>{{ $product->price}}</td>
                   <td>{{ $product->is_active ? 'true' : 'false'}}</td>
                   <td>

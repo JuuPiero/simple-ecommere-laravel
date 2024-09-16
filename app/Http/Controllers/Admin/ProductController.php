@@ -9,10 +9,9 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
-{
+class ProductController extends Controller {
     public function index() {
-        $products = Product::with('images')->join('categories', 'categories.id', '=', 'products.category_id')->select('products.*', 'categories.name as category_name')->get();
+        $products = Product::all();
         
         return view('admin.product.index', compact('products'));
     }
@@ -25,9 +24,6 @@ class ProductController extends Controller
     }
 
     public function store(Request $request) {
-        $request->validate([
-            'file' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
         $data = $request->all();
         $data['is_active'] = empty($data['is_active']) ? false : true;
         $product = Product::create($data);
@@ -68,10 +64,7 @@ class ProductController extends Controller
     }
 
     public function update($id, Request $request) {
-        $request->validate([
-            'file' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-        $product = Product::with('images')->findOrFail($id);
+        $product = Product::findOrFail($id);
         $data = $request->all();
         $data['is_active'] = empty($data['is_active']) ? false : true;
 

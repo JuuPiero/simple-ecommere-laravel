@@ -1,7 +1,7 @@
 <nav id="sidebar">
     <!-- Sidebar Header-->
     <div class="sidebar-header d-flex align-items-center">
-    <div class="avatar"><img src="{{ asset('uploads/avatar.jpg')}}" alt="..." class="img-fluid rounded-circle"></div>
+    {{-- <div class="avatar"><img src="{{ asset('uploads/avatar.jpg')}}" alt="..." class="img-fluid rounded-circle"></div> --}}
     <div class="title">
         <h1 class="h5">{{ Auth::guard('admin')->user()->first_name . ' ' . Auth::guard('admin')->user()->last_name }}</h1>
         <p>Admin</p>

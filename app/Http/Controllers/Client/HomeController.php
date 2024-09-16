@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller {
     public function index() {
@@ -31,8 +30,7 @@ class HomeController extends Controller {
         ->where('is_active', 1)
         ->firstOrFail();
 
-        $products = Product::with('images')
-        ->where('category_id', $id)
+        $products = Product::where('category_id', $id)
         ->where('is_active', 1)
         ->paginate(9);
 
@@ -43,17 +41,29 @@ class HomeController extends Controller {
     }
 
     public function product($id) {
-        $product = Product::with('images')->with('category')
-        ->where('id', $id)
+        $product = Product::where('id', $id)
         ->where('is_active', 1)->firstOrFail();
-        $suggests = Product::with('images')->with('category')
-        ->where('is_active', 1)
+        $suggests = Product::where('is_active', 1)
         ->where('category_id', $product->category_id)
         ->where('id', '<>' ,$id)->get();
         return view('client.home.product')->with([
             'product' => $product,
             'suggests' => $suggests
 
+        ]);
+    }
+
+    public function search(Request $request) {
+        $keywords = explode(' ', $request->keyword);
+        $products = Product::where('is_active', 1);
+        
+        foreach ($keywords as $keyword) {
+            $products->where('name', 'like', '%' . $keyword . '%');
+        }
+        
+        $products = $products->get();
+        return view('client.search.index')->with([
+            'products' => $products,
         ]);
     }
 }

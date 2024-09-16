@@ -26,7 +26,7 @@
                   <td>{{ $order->first_name . ' ' . $order->last_name }}</td>
 
                   <td>{{ $order->phone_number }}</td>
-                  <td>{{ $order->total_amount }}</td>
+                  <td>{{ $order->total_amount }}$</td>
                   <td><span style="background-color: {{ $order->status == 0 ? 'red' : 'green'}}; color: black" >{{ $order->status == 0 ? 'Pending' : 'Complete'}}</span></td>
                   {{-- <td ><input type="submit" style="" readonly class="btn {{ $order->status == 0 ? 'Pending' : 'Complete'}} text-black" value="{{ $order->status == 0 ? 'Pending' : 'Complete'}}"></td> --}}
                   <td>

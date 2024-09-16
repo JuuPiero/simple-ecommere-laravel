@@ -28,7 +28,7 @@
                         <tr>
                             <td>{{ $item->product->name }}</td>
                             <td>{{ $item->quantity }}</td>
-                            <td>{{ $item->price }}</td>
+                            <td>{{ $item->price }}$</td>
                         </tr>
                     @endforeach
                 </tbody>

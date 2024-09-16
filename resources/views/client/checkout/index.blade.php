@@ -26,32 +26,32 @@
                     <div class="row">
                         <div class="col-lg-9">
                             <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <label>First Name *</label>
-                                        <input name="first_name" type="text" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>First Name *</label>
+                                    <input name="first_name" type="text" class="form-control" required>
+                                </div><!-- End .col-sm-6 -->
 
-                                    <div class="col-sm-6">
-                                        <label>Last Name *</label>
-                                        <input name="last_name" type="text" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
-                                </div><!-- End .row -->
+                                <div class="col-sm-6">
+                                    <label>Last Name *</label>
+                                    <input name="last_name" type="text" class="form-control" required>
+                                </div><!-- End .col-sm-6 -->
+                            </div><!-- End .row -->
 
-                                <label>Address *</label>
-                                <textarea name="address" class="form-control" name="" id="" cols="30" rows="5" required></textarea>
+                            <label>Address *</label>
+                            <textarea name="address" class="form-control" name="" id="" cols="30" rows="5" required></textarea>
 
 
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <label>Phone *</label>
-                                        <input name="phone_number" type="tel" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
-                                </div><!-- End .row -->
-                                <input class="total-amount-input" type="hidden" value="" name="total_amount" />
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Phone *</label>
+                                    <input name="phone_number" type="tel" class="form-control" required>
+                                </div><!-- End .col-sm-6 -->
+                            </div><!-- End .row -->
+                            <input class="total-amount-input" type="hidden" value="" name="total_amount" />
 
-                                <label>Order notes (optional)</label>
-                                <textarea name="note" class="form-control" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                            <label>Order notes (optional)</label>
+                            <textarea name="note" class="form-control" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
                         </div><!-- End .col-lg-9 -->
                         <aside class="col-lg-3">
                             <div class="summary">
@@ -68,15 +68,9 @@
                                         @foreach ($items as $item)
                                             <tr>
                                                 <td><a href="#">{{ $item['product']->name }}</a></td>
-                                                <td class="total-col">{{ '$' . ($item['product']->price * $item['quantity']) }}</td>
+                                                <td class="total-col">{{ ($item['product']->price * $item['quantity']) }}$</td>
                                             </tr>
                                         @endforeach
-
-                                        {{-- <tr>
-                                            <td><a href="#">Blue utility pinafore denimdress</a></td>
-                                            <td>$76,00</td>
-                                        </tr> --}}
-                                    
                                         <tr class="summary-total">
                                             <td>Total:</td>
                                             <td class="total">$160.00</td>
@@ -102,10 +96,10 @@
     const totalCols = document.querySelectorAll('.total-col')
     let total = 0
     totalCols.forEach(item => {
-        console.log(Number.parseFloat(item.innerText.substring(1)));
-        total += Number.parseFloat(item.innerText.substring(1))
+        // console.log(Number.parseFloat(item.innerText.substring(1)));
+        total += Number.parseFloat(item.innerText.substring(-1))
     })
-    document.querySelector('.total').innerText = '$' + total
+    document.querySelector('.total').innerText =  + total + '$'
     document.querySelector('.total-amount-input').value = total
 </script>
 @endsection

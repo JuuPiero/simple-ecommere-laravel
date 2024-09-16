@@ -35,7 +35,7 @@
                                     <div class="intro-price">
                                         <sup>Today:</sup>
                                         <span class="text-primary">
-                                            $247<sup>.99</sup>
+                                            247<sup>.99$</sup>
                                         </span>
                                     </div><!-- End .intro-price -->
 
@@ -61,9 +61,9 @@
                                     </h1><!-- End .intro-title -->
 
                                     <div class="intro-price">
-                                        <sup class="intro-old-price">$49,99</sup>
+                                        <sup class="intro-old-price">49,99$</sup>
                                         <span class="text-primary">
-                                            $29<sup>.99</sup>
+                                            29<sup>$</sup>
                                         </span>
                                     </div><!-- End .intro-price -->
 
@@ -100,7 +100,7 @@
 
                             <div class="banner-content">
                                 <h4 class="banner-subtitle d-lg-none d-xl-block"><a href="#">Clearance</a></h4><!-- End .banner-subtitle -->
-                                <h3 class="banner-title"><a href="#">GoPro - Fusion 360 <span>Save $70</span></a></h3><!-- End .banner-title -->
+                                <h3 class="banner-title"><a href="#">GoPro - Fusion 360 <span>Save 70$</span></a></h3><!-- End .banner-title -->
                                 <a href="#" class="banner-link">Shop Now<i class="icon-long-arrow-right"></i></a>
                             </div><!-- End .banner-content -->
                         </div><!-- End .banner -->
@@ -121,57 +121,6 @@
             </div><!-- End .row -->
         </div><!-- End .container -->
     </div><!-- End .intro-section -->
-
-    {{-- <div class="container">
-        <div class="owl-carousel mt-5 mb-5 owl-simple" data-toggle="owl" 
-                data-owl-options='{
-                    "nav": false, 
-                    "dots": false,
-                    "margin": 30,
-                    "loop": false,
-                    "responsive": {
-                        "0": {
-                            "items":2
-                        },
-                        "420": {
-                            "items":3
-                        },
-                        "600": {
-                            "items":4
-                        },
-                        "900": {
-                            "items":5
-                        },
-                        "1024": {
-                            "items":6
-                        }
-                    }
-                }'>
-                <a href="#" class="brand">
-                    <img src="{{ asset('assets/client/images/brands/1.png') }}" alt="Brand Name">
-                </a>
-
-                <a href="#" class="brand">
-                    <img src="{{ asset('assets/client/images/brands/2.png') }}" alt="Brand Name">
-                </a>
-
-                <a href="#" class="brand">
-                    <img src="{{ asset('assets/client/images/brands/3.png') }}" alt="Brand Name">
-                </a>
-
-                <a href="#" class="brand">
-                    <img src="{{ asset('assets/client/images/brands/4.png') }}" alt="Brand Name">
-                </a>
-
-                <a href="#" class="brand">
-                    <img src="{{ asset('assets/client/images/brands/5.png') }}" alt="Brand Name">
-                </a>
-
-                <a href="#" class="brand">
-                    <img src="{{ asset('assets/client/images/brands/6.png') }}" alt="Brand Name">
-                </a>
-            </div><!-- End .owl-carousel -->
-    </div><!-- End .container --> --}}
 
     <div class="container">
         <hr class="mt-3 mb-6">
@@ -241,7 +190,7 @@
                                 </div><!-- End .product-cat -->
                                 <h3 class="product-title"><a href="product.html">{{ $product->name }}</a></h3><!-- End .product-title -->
                                 <div class="product-price">
-                                    ${{ $product->price }}
+                                    {{ $product->price }}$
                                 </div><!-- End .product-price -->
                             </div><!-- End .product-body -->
                         </div><!-- End .product -->
