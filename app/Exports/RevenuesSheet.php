@@ -31,6 +31,6 @@ class RevenuesSheet implements FromCollection, WithHeadings
 
     public function headings(): array
     {
-        return ['STT', 'Day', 'Total Revenue'];
+        return ['STT', 'Day', 'Revenue'];
     }
 }
