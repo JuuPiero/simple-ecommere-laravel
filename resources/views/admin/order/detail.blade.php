@@ -56,6 +56,7 @@
                         <select name="status" class="form-control is-invalid">
                             <option value="0">PENDING</option>
                             <option value="1">COMPLETE</option>
+                            <option value="2">CANCEL</option>
                         </select>
                     </div>
                 </div>

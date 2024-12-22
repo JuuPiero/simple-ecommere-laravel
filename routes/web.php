@@ -60,7 +60,8 @@ Route::prefix('admin')->group(function () {
         Route::get('', [AdminController::class, 'index'])->name('admin');
         Route::get('logout', [AdminController::class, 'logout'])->name('admin.logout');
         Route::get('users', [AdminController::class, 'user'])->name('admin.user');
-
+        Route::get('statistical', [AdminController::class, 'statistical'])->name('admin.statistical');
+        Route::get('statistical/export', [AdminController::class, 'export'])->name('admin.statistical.export');
         
         Route::prefix('products')->group(function() {
             Route::get('', [ProductController::class, 'index'])->name('admin.product');
